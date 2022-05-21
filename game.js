@@ -2,13 +2,13 @@ var game;
 
 var ballDistance = 155;
 var rotationSpeed = 4;
-var angleRange = [25, 155];
-var visibleTargets = 7;
+var angleRange = [25, 145];
+var visibleTargets = 10;
 var bgColors = [0x000000, 0xd21034] //, 0xff5300, 0xd21034, 0xff475c, 0x8f16b2];
 
 
 window.onload = function() {
-	game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, "");
+     game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, "");
      game.state.add("PlayGame", playGame);
      game.state.start("PlayGame");
 
@@ -43,7 +43,7 @@ playGame.prototype = {
                fill: "#d21034"
           };
  var styleA = {
-               font: " 20px Arial",
+               font: " 28px Arial",
                fill: "#d21034"
           };
           var style2 = {
@@ -147,7 +147,7 @@ playGame.prototype = {
                this.rotationAngle = this.balls[1 - this.rotatingBall].position.angle(this.balls[this.rotatingBall].position, true) - 90;
                this.arm.angle = this.rotationAngle + 90;
                for(var i = 0; i < this.targetArray.length; i++){
-                    this.targetArray[i].alpha += 1 / 7;
+                    this.targetArray[i].alpha += 1 / 5;
                }
                this.addTarget();
                console.log(this.steps - visibleTargets)
@@ -170,7 +170,7 @@ playGame.prototype = {
           target.anchor.set(0.5);
           target.x = startX + ballDistance * Math.sin(Phaser.Math.degToRad(randomAngle));
           target.y = startY + ballDistance * Math.cos(Phaser.Math.degToRad(randomAngle));
-          target.alpha = 1 - this.targetArray.length * (1 / 5);
+          target.alpha = 1 - this.targetArray.length * (1 / 7);
           var style = {
                font: "bold 16px Arial",
                fill: "#" + this.tintColor.toString(16),
