@@ -147,7 +147,7 @@ playGame.prototype = {
                this.rotationAngle = this.balls[1 - this.rotatingBall].position.angle(this.balls[this.rotatingBall].position, true) - 90;
                this.arm.angle = this.rotationAngle + 90;
                for(var i = 0; i < this.targetArray.length; i++){
-                    this.targetArray[i].alpha += 1 / 5;
+                    this.targetArray[i].alpha += 1 / 4;
                }
                this.addTarget();
                console.log(this.steps - visibleTargets)
@@ -170,7 +170,7 @@ playGame.prototype = {
           target.anchor.set(0.5);
           target.x = startX + ballDistance * Math.sin(Phaser.Math.degToRad(randomAngle));
           target.y = startY + ballDistance * Math.cos(Phaser.Math.degToRad(randomAngle));
-          target.alpha = 1 - this.targetArray.length * (1 / 7);
+          target.alpha = 1 - this.targetArray.length * (1 / 4);
           var style = {
                font: "bold 16px Arial",
                fill: "#" + this.tintColor.toString(16),
@@ -180,7 +180,7 @@ playGame.prototype = {
           console.log('wormHole: ' + wormHole);
 
           if(wormHole == 25){
-                       var text = game.add.text(0, 0, 'WORM', style);
+                       var text = game.add.text(0, 0, this.steps.toString(), style);
 
           } else {
                        var text = game.add.text(0, 0, this.steps.toString(), style);
