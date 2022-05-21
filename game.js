@@ -1,9 +1,9 @@
 var game;
 
-var ballDistance = 125;
+var ballDistance = 155;
 var rotationSpeed = 4;
-var angleRange = [25, 125];
-var visibleTargets = 6;
+var angleRange = [25, 155];
+var visibleTargets = 7;
 var bgColors = [0x000000, 0xd21034] //, 0xff5300, 0xd21034, 0xff475c, 0x8f16b2];
 
 
@@ -43,7 +43,7 @@ playGame.prototype = {
                fill: "#d21034"
           };
  var styleA = {
-               font: " 10px Arial",
+               font: " 20px Arial",
                fill: "#d21034"
           };
           var style2 = {
