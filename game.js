@@ -273,7 +273,7 @@ var bgColors = [0x62bd18, 0xffbb00, 0xff5300, 0xd21034, 0xff475c, 0x8f16b2];
 
 
 window.onload = function() {	
-	game = new Phaser.Game(640, 960, Phaser.AUTO, "");
+	game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, "");
      game.state.add("PlayGame", playGame);
      game.state.start("PlayGame");
 }
