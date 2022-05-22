@@ -264,22 +264,22 @@ function sayName(e) {
 */
 
 var game;
- 
+
 var ballDistance = 120;
 var rotationSpeed = 4;
 var angleRange = [25, 155];
 var visibleTargets = 7;
 var bgColors = [0x62bd18, 0xffbb00, 0xff5300, 0xd21034, 0xff475c, 0x8f16b2];
- 
- 
-window.onload = function() {    
-    game = new Phaser.Game(640, 960, Phaser.AUTO, "");
+
+
+window.onload = function() {	
+	game = new Phaser.Game(640, 960, Phaser.AUTO, "");
      game.state.add("PlayGame", playGame);
      game.state.start("PlayGame");
 }
- 
+
 var playGame = function(game){};
- 
+
 playGame.prototype = {
      preload: function(){
           game.load.image("ball", "ball.png");
@@ -337,14 +337,14 @@ playGame.prototype = {
           for(var i = 0; i < visibleTargets; i++){
                this.addTarget(); 
           }
-           
+          
      },
      update: function(){
           var distanceFromTarget = this.balls[this.rotatingBall].position.distance(this.targetArray[1].position);
-          if(distanceFromTarget &gt; 90 &amp;&amp; this.destroy &amp;&amp; this.steps &gt; visibleTargets){
+          if(distanceFromTarget > 90 && this.destroy && this.steps > visibleTargets){
                this.gameOver();
           }
-          if(distanceFromTarget < 40 &amp;&amp; !this.destroy){
+          if(distanceFromTarget < 40 && !this.destroy){
                this.destroy = true;
           }
           this.rotationAngle = (this.rotationAngle + this.saveRotationSpeed * (this.rotatingDirection * 2 - 1)) % 360;
@@ -405,7 +405,7 @@ playGame.prototype = {
      gameOver: function(){
           localStorage.setItem("circlepath",JSON.stringify({
                score: Math.max(this.savedData.score, this.steps - visibleTargets)
-         }));
+	     }));
           game.input.onDown.remove(this.changeBall, this);
           this.saveRotationSpeed = 0;
           this.arm.destroy();
